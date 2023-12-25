@@ -8,8 +8,21 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class SpringTrainingApplication {
 
-    @Autowired
+    // field Injection
+    // @Autowired
     private PersonManager personManager;
+
+    // Constructor Injection
+    // @Autowired
+    public SpringTrainingApplication(final PersonManager personManagerParam) {
+        personManager = personManagerParam;
+    }
+
+    // method injection
+    // @Autowired
+    public void xyz(PersonManager personManager){
+
+    }
 
     public static void main(String[] args) {
         ConfigurableApplicationContext contextLoc = SpringApplication.run(SpringTrainingApplication.class,

@@ -10,10 +10,11 @@ import lombok.*;
 
 @Data
 @AllArgsConstructor
-@RequiredArgsConstructor
+@NoArgsConstructor
+// @RequiredArgsConstructor
 public class Person {
-    private final String  firstName;
-    private final String  lastName;
+    private String  firstName;
+    private String  lastName;
     private Integer age;
     private Integer height;
     private Integer weight;
