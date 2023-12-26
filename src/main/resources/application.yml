@@ -1,0 +1,71 @@
+a:
+  b:
+    c: xyz
+app:
+  goodbye:
+    prefix: Adios
+  hello:
+    prefix: Ola
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        # deneme comment
+my:
+  app:
+    prop:
+      app-header: > 
+        header1 ekjdshf
+        sdfjlssjdf
+        sdlkfjlsdf
+      app-version: 1.0.0
+      host: 127.0.0.1
+      person:
+        age: 54
+        first-name: 'osman'
+        height: 200
+        last-name: yaycioglu
+        weight: 100
+      person-list:
+        - age: 32
+          first-name: ali
+          height: 180
+          last-name: veli
+          weight: 100
+        - age: 35
+          first-name: osman
+          height: 190
+          last-name: alaz
+          weight: 105
+        - age: 45
+          first-name: xyz
+          last-name: hhj
+          height: 100
+          weight: 40
+      person-map:
+        abc:
+          age: 25
+          first-name: mehmet
+          height: 170
+          last-name: ulaz
+          weight: 80
+        xyz:
+          age: 35
+          first-name: hatice
+          height: 170
+          last-name: laz
+          weight: 60
+        person1:
+          age: 55
+          first-name: esra
+          height: 170
+          last-name: laz
+          weight: 60
+      person-names: [osman,ali,veli,mehmet,mahmut,ismail,atıl]
+      port: 9090
+server:
+  port: 8080
+spring:
+  profiles:
+    default: live

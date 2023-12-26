@@ -3,6 +3,7 @@ package training.spring.springtraining;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
 import training.another.packages.CacheConfiguration;
@@ -14,6 +15,7 @@ import training.another.packages.MyAnotherConfiguration;
 @SpringBootApplication
 @Import({MyAnotherConfiguration.class,
          CacheConfiguration.class})
+@EnableConfigurationProperties
 public class SpringTrainingApplication {
 
     // field Injection
