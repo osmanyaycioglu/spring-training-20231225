@@ -10,9 +10,12 @@ import training.spring.springtraining.beans.IHello;
 //@RequiredArgsConstructor
 public class HelloRestController {
     private final IHello hello;
+    private final IHello helloConf;
 
-    public HelloRestController(@Qualifier("tr-dili")  final IHello helloParam) {
-        hello = helloParam;
+    public HelloRestController(@Qualifier("tr-dili") final IHello helloParam,
+                               @Qualifier("hello-def") IHello helloConfParam) {
+        hello     = helloParam;
+        helloConf = helloConfParam;
     }
 
     // /api/v1/hello/say/hello?n=osman&s=yaycıoğlu
@@ -21,6 +24,13 @@ public class HelloRestController {
                         @RequestParam("s") final String surname) {
         return this.hello.sayHello(name,
                                    surname);
+    }
+
+    @GetMapping("/say/hellox")
+    public String helloX(@RequestParam("n") final String name,
+                        @RequestParam("s") final String surname) {
+        return this.helloConf.sayHello(name,
+                                       surname);
     }
 
     // /api/v1/hello/say/hello2?name=osman&surname=yaycıoğlu
