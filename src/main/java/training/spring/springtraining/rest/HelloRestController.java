@@ -11,7 +11,7 @@ import training.spring.springtraining.beans.IHello;
 public class HelloRestController {
     private final IHello hello;
 
-    public HelloRestController(@Qualifier("my-hello-tr")  final IHello helloParam) {
+    public HelloRestController(@Qualifier("tr-dili")  final IHello helloParam) {
         hello = helloParam;
     }
 
