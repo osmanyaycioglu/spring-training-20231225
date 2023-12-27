@@ -7,18 +7,36 @@ package training.spring.springtraining;
 
 import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-@Data
+
+@Entity
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 // @RequiredArgsConstructor
 public class Person {
+    @Id
+    private Long personId;
     private String  firstName;
     private String  lastName;
     private Integer age;
     private Integer height;
     private Integer weight;
 
+    public Person(final String firstNameParam,
+                  final String lastNameParam,
+                  final Integer ageParam,
+                  final Integer heightParam,
+                  final Integer weightParam) {
+        firstName = firstNameParam;
+        lastName  = lastNameParam;
+        age       = ageParam;
+        height    = heightParam;
+        weight    = weightParam;
+    }
 
     public String sayHello() {
         return "Hello : " + firstName + " " + lastName;
