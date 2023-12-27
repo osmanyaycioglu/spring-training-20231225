@@ -33,7 +33,10 @@ public class MyFirstRestController {
     @PostMapping("/hello/person")
     public String method(@RequestBody final Person personParam) {
         // addressRepository.save(personParam.getAddress());
-        personParam.getAddress().setPerson(personParam);
+        personParam.getAddress()
+                   .setPerson(personParam);
+        personParam.getPhones()
+                   .forEach(phone -> phone.setPerson(personParam));
         this.personRepository.save(personParam);
         return "Hello person : " + personParam;
     }
