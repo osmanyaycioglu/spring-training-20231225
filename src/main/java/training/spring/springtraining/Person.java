@@ -8,6 +8,7 @@ package training.spring.springtraining;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 
@@ -19,7 +20,8 @@ import javax.persistence.Id;
 // @RequiredArgsConstructor
 public class Person {
     @Id
-    private Long personId;
+    @GeneratedValue
+    private Long    personId;
     private String  firstName;
     private String  lastName;
     private Integer age;
