@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 public class EmployeeDto {
     @NotEmpty
-    @Schema(name = "name",description = "çalışanın ismi",example = "osman")
+    @Schema(name = "name", description = "çalışanın ismi", example = "osman")
     private String           name;
     @NotBlank
     private String           surname;
@@ -28,4 +28,5 @@ public class EmployeeDto {
     private List<AddressDto> addressList;
     @NotEmpty
     private String           department;
+    private String           gender;
 }

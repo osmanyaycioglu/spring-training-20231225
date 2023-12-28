@@ -1,24 +1,19 @@
 package com.training.project.employee.input.rest;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.training.project.employee.bussiness.services.EmployeeProvisionService;
 import com.training.project.employee.input.rest.models.EmployeeAddResponse;
 import com.training.project.employee.input.rest.models.EmployeeDto;
-import com.training.project.employee.input.rest.models.Response;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-import java.io.IOException;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 public class EmployeeProvisionController implements IEmployeeProvisionController {
+    private final EmployeeProvisionService employeeProvisionService;
 
-    public EmployeeAddResponse add(EmployeeDto employeeDtoParam) {
-        return null;
+    @Override
+    public EmployeeAddResponse add(final EmployeeDto employeeDtoParam) {
+        return this.employeeProvisionService.add(employeeDtoParam);
     }
 
     // Yapma
