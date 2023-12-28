@@ -1,6 +1,7 @@
 package com.training.project.employee.input.rest;
 
 import com.training.project.employee.bussiness.services.EmployeeProvisionService;
+import com.training.project.employee.input.objectmappings.IEmployeeMappings;
 import com.training.project.employee.input.rest.models.EmployeeAddResponse;
 import com.training.project.employee.input.rest.models.EmployeeDto;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +14,8 @@ public class EmployeeProvisionController implements IEmployeeProvisionController
 
     @Override
     public EmployeeAddResponse add(final EmployeeDto employeeDtoParam) {
-        return this.employeeProvisionService.add(employeeDtoParam);
+        this.employeeProvisionService.add(IEmployeeMappings.INSTANCE.toEmployee(employeeDtoParam));
+        return null;
     }
 
     // Yapma

@@ -13,8 +13,9 @@ import java.util.List;
 
 @Data
 public class Employee {
-    private String        name;
-    private String        surname;
-    private List<Phone>   phoneList;
-    private List<Address> addressList;
+    private String          firstName;
+    private String          lastName;
+    private List<Phone>     phoneList;
+    private List<Address>   addressList;
+    private EmployeeDetails employeeDetails;
 }
