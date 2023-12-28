@@ -14,7 +14,7 @@ import java.util.Map;
 @Data
 @Component
 @ConfigurationProperties(prefix = "my.app.prop")
-@Validated
+// @Validated
 public class MyAppProperties {
     @NotEmpty
     private String              host;

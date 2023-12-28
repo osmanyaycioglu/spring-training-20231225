@@ -14,8 +14,11 @@ public class EmployeeProvisionController implements IEmployeeProvisionController
 
     @Override
     public EmployeeAddResponse add(final EmployeeDto employeeDtoParam) {
-        this.employeeProvisionService.add(IEmployeeMappings.INSTANCE.toEmployee(employeeDtoParam));
-        return null;
+        String uid = this.employeeProvisionService.add(IEmployeeMappings.INSTANCE.toEmployee(employeeDtoParam));
+        return EmployeeAddResponse.builder()
+                                  .withEmployeeId(uid)
+                                  .withDesc("employee active edildi")
+                                  .build();
     }
 
     // Yapma

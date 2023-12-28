@@ -63,6 +63,7 @@ my:
           weight: 60
       person-names: [osman,ali,veli,mehmet,mahmut,ismail,atıl]
       port: 9090
+      host: 127.0.0.1
 server:
   port: 8080
 spring:
