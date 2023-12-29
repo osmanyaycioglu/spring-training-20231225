@@ -15,18 +15,21 @@ import java.util.List;
 public class EmployeeDto {
     @NotEmpty
     @Schema(name = "name", description = "çalışanın ismi", example = "osman")
-    private String           name;
+    private String                 name;
     @NotBlank
-    private String           surname;
+    private String                 surname;
     @NotNull
     @Size(min = 1)
     @Valid
-    private List<PhoneDto>   phoneList;
+    private List<PhoneDto>         phoneList;
     @NotNull
     @Size(min = 1)
     @Valid
-    private List<AddressDto> addressList;
+    private List<AddressDto>       addressList;
     @NotEmpty
-    private String           department;
-    private String           gender;
+    private String                 department;
+    private String                 gender;
+    @NotEmpty
+    @Valid
+    private EmployeeCredentialsDto credentials;
 }

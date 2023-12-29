@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import training.another.packages.CacheConfiguration;
 import training.another.packages.MyAnotherConfiguration;
 
@@ -22,6 +24,8 @@ import javax.persistence.Entity;
 @EntityScan(basePackages = {
         "training.spring.springtraining"
 })
+@EnableScheduling
+@EnableAsync
 public class SpringTrainingApplication {
 
     // field Injection

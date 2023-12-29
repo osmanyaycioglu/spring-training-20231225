@@ -83,3 +83,14 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQL95Dialect
         show_sql: true
         format_sql: true
+  task:
+    scheduling:
+      pool:
+        size: 4
+      thread-name-prefix: "sch-"
+logging:
+  level:
+    training:
+      spring:
+        springtraining:
+          scheduling: INFO

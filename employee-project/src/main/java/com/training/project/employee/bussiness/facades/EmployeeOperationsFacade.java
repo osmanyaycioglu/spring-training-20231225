@@ -5,16 +5,24 @@ import com.training.project.employee.db.EmployeeRepository;
 import com.training.project.employee.integrations.TrainingIntegration;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
 public class EmployeeOperationsFacade {
     private final TrainingIntegration trainingIntegration;
-    private final EmployeeRepository employeeRepository;
+    private final EmployeeRepository  employeeRepository;
 
-    public String checkAndAddEmployee(Employee employeeParam){
-        if (trainingIntegration.requestPersonInfo(employeeParam)){
-            return employeeRepository.insertEmployee(employeeParam);
+    @Transactional(propagation = Propagation.REQUIRED, noRollbackFor = {NullPointerException.class,
+                                                                        IllegalArgumentException.class
+    }, isolation = Isolation.READ_COMMITTED)
+    public String checkAndAddEmployee(final Employee employeeParam) {
+        if (this.trainingIntegration.requestPersonInfo(employeeParam)) {
+            final String stringLoc = this.employeeRepository.insertEmployee(employeeParam);
+            // Another Rest Call
+            return stringLoc;
         } else {
             throw new IllegalStateException("person is not ready");
         }
@@ -22,6 +30,6 @@ public class EmployeeOperationsFacade {
 
 
     public Employee findOneByUid(final String empIdParam) {
-        return employeeRepository.findOneByUid(empIdParam);
+        return this.employeeRepository.findOneByUid(empIdParam);
     }
 }

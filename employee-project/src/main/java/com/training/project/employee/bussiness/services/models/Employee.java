@@ -33,6 +33,15 @@ public class Employee {
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private EmployeeDetails employeeDetails;
 
+    @Enumerated(EnumType.STRING)
+    private EEmployeeStatus employeeStatus = EEmployeeStatus.ACTIVE;
+
+    @Version
+    private Integer dVersion;
+
+    @Transient
+    private EmployeeCredentials employeeCredentials;
+
     @PrePersist
     public void init() {
         employeeUID = UUID.randomUUID()
