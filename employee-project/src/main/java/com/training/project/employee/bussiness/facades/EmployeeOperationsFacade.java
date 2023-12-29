@@ -21,4 +21,7 @@ public class EmployeeOperationsFacade {
     }
 
 
+    public Employee findOneByUid(final String empIdParam) {
+        return employeeRepository.findOneByUid(empIdParam);
+    }
 }

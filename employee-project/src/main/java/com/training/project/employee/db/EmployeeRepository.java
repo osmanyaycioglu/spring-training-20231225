@@ -15,4 +15,7 @@ public class EmployeeRepository {
         return employeeParam.getEmployeeUID();
     }
 
+    public Employee findOneByUid(final String empIdParam) {
+        return employeeDao.findByEmployeeUID(empIdParam);
+    }
 }
